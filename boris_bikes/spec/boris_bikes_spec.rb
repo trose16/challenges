@@ -18,6 +18,20 @@ describe DockingStation do
     expect(bike.working?).to eq true
   end
 
+  it "Responds to a method called return_bike" do
+    docking_station = DockingStation.new
+    bike = Bike.new
+    expect(docking_station).to respond_to(:return_bike).with(1).argument
+    expect(docking_station.return_bike(bike)).to eq bike
+  end
+
+  it "If bike is there, return true" do
+    docking_station = DockingStation.new
+    bike = Bike.new
+    docking_station.return_bike(bike)
+    expect(docking_station.bike).to eq bike
+  end
+
 
 
 
