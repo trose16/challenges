@@ -3,7 +3,8 @@ class DockingStation
 attr_reader :bike
 
   def release_bike
-    Bike.new
+  raise "No more bikes!" unless @bike
+  Bike.new
   end
 
   def return_bike(bike)
