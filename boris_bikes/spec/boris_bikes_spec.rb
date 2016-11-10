@@ -29,20 +29,26 @@ describe DockingStation do
 
   it "If bike is there, return true" do
     docking_station = DockingStation.new
-    bike = Bike.new
-    docking_station.return_bike(bike)
-    expect(docking_station.bike).to eq bike
+    bikes = Bike.new
+    docking_station.return_bike(bikes)
+    expect(docking_station.bikes).to eq bikes
   end
 
-  it "Raises an error when asked to release bike" do
+  it "Raises an error when asked to release bike when bikes array is empty" do
     docking_station = DockingStation.new
     expect {docking_station.release_bike}.to raise_error("No more bikes!")
   end
 
-  it "Raises an error when returning bike to full station" do
+  it "Raises an error when returning bike to a station that has 20 in it" do
     docking_station = DockingStation.new
     expect {docking_station.accept_bike}.to raise_error("Docking station full!")
   end
+
+  it "Assigns Docking Station a capacity of 20" do
+    docking_station = DockingStation.new
+    20.times {docking_station.return_bike Bike.new}
+  end
+
 
 
 end
