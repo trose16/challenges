@@ -17,16 +17,11 @@ attr_reader :bikes
 
   def dock(bike)
     raise "Docking station full!" if @bikes.count >= 20
-    @bikes << bike
+    @bikes << "bike"
   end
 
   def full?
-    if
-      @bike.count >= 20
-      return true
-    else
-      return false
-    end
+      @bikes.count >= 20
   end
 
 
