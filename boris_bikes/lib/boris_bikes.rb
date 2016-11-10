@@ -7,7 +7,7 @@ attr_reader :bikes
   end
 
   def release_bike
-    raise "No more bikes!" if @bikes == []
+    raise "No more bikes!" if empty?
     @bikes.pop
   end
 
@@ -16,15 +16,19 @@ attr_reader :bikes
   # end
 
   def dock(bike)
-    raise "Docking station full!" if @bikes.count >= 20
+    raise "Docking station full!" if full?
     @bikes << "bike"
   end
 
   def full?
-      @bikes.count >= 20
+    @bikes.count >= 20
   end
 
+  def empty?
+    @bikes.count == 0
+  end
 
+# private :release_bike, :dock, :full?, :empty?
 
 end
 
