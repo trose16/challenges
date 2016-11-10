@@ -20,35 +20,29 @@ describe DockingStation do
     expect(bike1.working?).to eq true
   end
 
-  it "Responds to a method called return_bike" do
+  it "Responds to a method called dock" do
     docking_station = DockingStation.new
     bike = Bike.new
-    expect(docking_station).to respond_to(:return_bike).with(1).argument
-    expect(docking_station.return_bike(bike)).to eq bike
+    expect(docking_station).to respond_to(:dock).with(1).argument
+    # expect(docking_station.dock(bike)).to eq bike
   end
 
-  it "If bike is there, return true" do
-    docking_station = DockingStation.new
-    bikes = Bike.new
-    docking_station.return_bike(bikes)
-    expect(docking_station.bikes).to eq bikes
-  end
+  # it "If bike is there, return true" do
+  #   docking_station = DockingStation.new
+  #   bike = Bike.new
+  #   docking_station.dock(bike)
+  #   expect(docking_station.bike).to eq bikes
+  # end
 
   it "Raises an error when asked to release bike when bikes array is empty" do
     docking_station = DockingStation.new
     expect {docking_station.release_bike}.to raise_error("No more bikes!")
   end
 
-  it "Raises an error when returning bike to a station that has 20 in it" do
+  it "Raises an error when full" do
     docking_station = DockingStation.new
-    expect {docking_station.accept_bike}.to raise_error("Docking station full!")
+    20.times {docking_station.dock Bike.new}
+    expect {docking_station.dock(Bike.new)}.to raise_error("Docking station full!")
   end
-
-  it "Assigns Docking Station a capacity of 20" do
-    docking_station = DockingStation.new
-    20.times {docking_station.return_bike Bike.new} 
-  end
-
-
 
 end
