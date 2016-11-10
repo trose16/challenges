@@ -46,7 +46,7 @@ describe DockingStation do
 
   it "Assigns Docking Station a capacity of 20" do
     docking_station = DockingStation.new
-    20.times {docking_station.return_bike Bike.new}
+    20.times {docking_station.return_bike Bike.new} 
   end
 
 
