@@ -12,7 +12,7 @@ attr_reader :bikes
   end
 
   def return_bike(bike)
-    @bikes = bike
+    @bikes = bike 
   end
 
   def accept_bike
