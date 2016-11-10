@@ -4,8 +4,9 @@ attr_reader :bikes
 
   DEFAULT_CAPACITY = 20
 
-  def initialize
+  def initialize(capacity = DEFAULT_CAPACITY)
     @bikes = []
+    @capacity = capacity
   end
 
   def release_bike
@@ -23,14 +24,14 @@ attr_reader :bikes
   end
 
   def full?
-    @bikes.count >= DEFAULT_CAPACITY
+    @bikes.count >= @capacity #DEFAULT_CAPACITY
   end
 
   def empty?
     @bikes.count == 0
   end
 
- private :release_bike, :dock, :full?, :empty?
+ private :full?, :empty?
 
 end
 
