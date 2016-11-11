@@ -20,7 +20,7 @@ attr_reader :bikes
 
   def dock(bike)
     raise "Docking station full!" if full?
-    @bikes << "bike"
+    @bikes << bike
   end
 
   def full?
