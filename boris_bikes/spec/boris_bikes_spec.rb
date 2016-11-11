@@ -46,11 +46,14 @@ describe DockingStation do
     expect {docking_station.dock(Bike.new)}.to raise_error("Docking station full!")
   end
 
-  # it "Allows a system maintainer to change capacity of docking station" do
-  #   docking_station = DockingStation.new
-  #   capacity = 40
-  #   capacity.times {docking_station.dock Bike.new}
-  #   expect {docking_station.dock(Bike.new)}.to eq
-  # end
+  it "Expects the docking station to have a default capcity of 20 when no parameters are passed" do
+    docking_station = DockingStation.new
+    expect(docking_station.capacity).to eq DEFAULT_CAPACITY
+  end
+
+  it "Allows a system maintainer to set capacity of docking station" do
+    docking_station = DockingStation.new(25)
+    expect(docking_station.capacity).to eq 25
+  end
 
 end

@@ -1,6 +1,6 @@
 class DockingStation
 
-attr_reader :bikes
+attr_reader :bikes, :capacity
 
   DEFAULT_CAPACITY = 20
 
@@ -28,7 +28,7 @@ attr_reader :bikes
   end
 
   def empty?
-    @bikes.count == 0
+    @bikes.empty?
   end
 
  private :full?, :empty?
